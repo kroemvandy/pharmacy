@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MCart;
+use App\Models\MCategory;
 use App\Models\MMedicine;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class CartController extends Controller
     public function index()
     {
         $medicineModel = MMedicine::all(); 
-        return view('backend.cart.index', compact('medicineModel'));
+        $category = MCategory::all(); 
+        return view('backend.cart.index', compact('medicineModel', var_names: 'category'));
     }
 
     /**

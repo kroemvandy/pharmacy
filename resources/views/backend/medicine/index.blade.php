@@ -64,7 +64,7 @@
                                 Description
                             </th>
                             <th
-                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-center text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                 Price
                             </th>
                             <th
@@ -115,14 +115,8 @@
                                             {{ $medicineItem->MedicineDescription }}</div>
                                     </td>
 
-                                    <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200">
-                                        <span
-                                            class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full items-center">
-                                            {{ $medicineItem->Price }}  
-                                              <svg width="25" height="25" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="50" cy="50" r="45" stroke="gold" stroke-width="3" fill="royalblue"/>
-                                                <text x="50%" y="90%" font-size="100" font-weight="bold" text-anchor="middle" fill="gold">៛</text>
-                                              </svg></span>
+                                    <td class="px-6 py-2 whitespace-no-wrap border-b border-gray-200 justify-items-end text-right">
+                                        {{ number_format($medicineItem->Price, 2) }} ៛
                                     </td>
 
                                     <td

@@ -48,7 +48,7 @@ class MedicineController extends Controller
             ]);
 
             if ($request->hasFile('Image')) {
-                $image_path = $request->file('Image')->store('images', 'public');
+                $image_path = $request->file('Image')->store('public/images', 'public');
                 $data['Image'] = $image_path;
             } else {
                 return back()->with('error', 'Image upload failed!');

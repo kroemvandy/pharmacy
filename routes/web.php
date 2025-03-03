@@ -3,6 +3,8 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/dashboard', function () {
-    return view('backend.dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -61,6 +61,6 @@ Route::controller(CartController::class)->group(function() {
     Route::get('create/cart', 'create')->name('create.cart');
     Route::post('store/cart', 'store')->name('store.cart');
 });
-
+Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 Route::get('/',[MedicineController::class, 'index']);
 require __DIR__.'/auth.php';

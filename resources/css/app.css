@@ -5,9 +5,9 @@
 .tooltip {
     position: relative;
     display: inline-block;
-  }
-  
-  .tooltip .tooltiptext {
+}
+
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 80px;
     background-color: black;
@@ -15,34 +15,35 @@
     text-align: center;
     border-radius: 4px;
     padding: 4px 2px 4px 2px;
-  
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
-
-  .active {
-    background-color: #007bff;
-    color: white;         
-    font-weight: bold;      
 }
 
-.sidebar-li{
-  list-style: none;
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.active {
+    background-color: #007bff;
+    color: white;
+    forced-color-adjust: auto;
+    font-weight: 600;
+}
+
+.sidebar-li {
+    list-style: none;
 }
 
 @layer utilities {
-  /* Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
 }

@@ -1,5 +1,5 @@
     <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
-        class="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-gray-900 lg:translate-x-0 lg:static lg:inset-0">
+        class="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-blue-950 lg:translate-x-0 lg:static lg:inset-0">
         <div class="flex items-center justify-center mt-8">
             <div class="flex items-center">
                 <svg class="w-12 h-12" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@
 
         <nav class="mt-10">
             <li class="{{ 'dashboard' == request()->path() ? 'active' : '' }} sidebar-li">
-                <a class="flex items-center px-6 py-2 text-gray-100 bg-gray-700 bg-opacity-25"
+                <a class="flex items-center px-6 py-2 text-slate-400 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
                     href="{{ route('dashboard') }}">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -28,12 +28,12 @@
                             d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                     </svg>
 
-                    <span class="mx-3">Dashboard</span>
+                    <span class="mx-3 ">Dashboard</span>
                 </a>
 
             </li>
-            <li class="{{ 'get-category' == request()->path() ? 'active' : '' }} mt-2 sidebar-li">
-                <a class="flex active:bg-slate-500 items-center px-6 py-2 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+            <li class="{{ 'category' == request()->path() ? 'active' : '' }} mt-2 sidebar-li">
+                <a class="flex items-center px-6 py-2 text-slate-400 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
                     href="{{ route('get-category') }}">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -46,8 +46,8 @@
                 </a>
             </li>
 
-            <li class="sidebar-li mt-2">
-                <a class="flex items-center px-6 py-2 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+            <li class="{{ 'get-medicine' == request()->path() ? 'active' : '' }} mt-2 sidebar-li">
+                <a class="flex items-center px-6 py-2 text-slate-400 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
                     href="{{ route('get-medicine') }}">
                     <i class='fas fa-first-aid w-6 h-6 flex items-center'></i>
 
@@ -55,8 +55,8 @@
                 </a>
             </li>
 
-            <li class="sidebar-li mt-2">
-                <a class="flex items-center px-6 py-2 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+            <li class="{{ 'get/cart' == request()->path() ? 'active' : '' }} sidebar-li mt-2">
+                <a class="flex items-center px-6 py-2 text-slate-400 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
                     href="{{ route('get.cart') }}">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
