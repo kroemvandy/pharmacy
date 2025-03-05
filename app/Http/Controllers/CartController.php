@@ -16,7 +16,7 @@ class CartController extends Controller
     {
         $medicineModel = MMedicine::all(); 
         $category = MCategory::all(); 
-        return view('backend.cart.index', compact('medicineModel', var_names: 'category'));
+        return view('backend.cart.index', compact('medicineModel', 'category'));
     }
 
     /**

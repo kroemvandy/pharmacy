@@ -29,29 +29,16 @@
                     </form>
                 </div>
                 <div class="flex justify-start bg-gray-50 py-2 px-2 rounded-lg shadow-md overflow-auto no-scrollbar p-1">
-                    <div class="flex space-x-4 w-[800px] ">
+                    <div class="flex space-x-4 w-[800px]">
                         @foreach ($category as $categoryItem)
-                            <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap mb-1">{{ $categoryItem->CategoryName }}</button>                      
+                            <button 
+                                class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap mb-1 category-button" 
+                                data-category-id="{{ $categoryItem->id }}">
+                                {{ $categoryItem->CategoryName }}
+                            </button>
                         @endforeach
-                      {{-- <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Starters</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Breakfast</button>
-                      <button class="px-4 py-2 text-blue-600 border border-blue-500 bg-blue-100 rounded-md whitespace-nowrap">Lunch</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Supper</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Desserts</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Beverages</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Desserts</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Beverages</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Desserts</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Beverages</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Desserts</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Beverages</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Desserts</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Beverages</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Desserts</button>
-                      <button class="px-4 py-2 text-gray-600 rounded-md hover:bg-gray-100 whitespace-nowrap">Beverages</button> --}}
-                      <!-- Add more buttons as needed -->
                     </div>
-                  </div>
+                </div>
                   
                   
                   
@@ -149,6 +136,28 @@
         
         let cart = []; // Initialize cart array
         let checkout =[];
+        document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.category-button');
+
+    // Activate the first button by default
+    if (buttons.length > 0) {
+        buttons[0].classList.add('bg-blue-500', 'text-white');
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove the active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('bg-blue-500', 'text-white'));
+
+            // Add the active class to the clicked button
+            this.classList.add('bg-blue-500', 'text-white');
+
+            // Optionally, you can store the selected category ID in a hidden input or use it in an AJAX request
+            const selectedCategoryId = this.getAttribute('data-category-id');
+            console.log('Selected Category ID:', selectedCategoryId);
+        });
+    });
+});
     function incrementItem(id, name, price) {
         console.log(id, name, price);
         
